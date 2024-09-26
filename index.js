@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 // Initialize Express server
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Use body-parser middleware to parse JSON data
 app.use(bodyParser.json());
@@ -125,7 +125,7 @@ app.post('/webhook', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.status(200).send('Server is RUnning');
+  res.status(200).send('Server is Running');
 });
 
 // Start the server
