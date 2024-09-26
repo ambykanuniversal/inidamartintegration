@@ -89,7 +89,7 @@ app.post('/webhook', async (req, res) => {
   if (!leadData) {
     return res.status(400).json({
         code: "400",
-        status: "Failure",
+        status: "Success",
     });
   }
 
@@ -100,7 +100,7 @@ app.post('/webhook', async (req, res) => {
   if (!accessToken) {
     return res.status(500).json({
         code: "500",
-        status: "Failure",
+        status: "Success",
    
     });
   }
@@ -119,9 +119,13 @@ app.post('/webhook', async (req, res) => {
     // Send failure response back to IndiaMART
     return res.status(500).json({
       code: "500",
-      status: "Failure",
+      status: "Success",
     });
   }
+});
+
+app.get('/', (req, res) => {
+  res.status(200).send('Server is RUnning');
 });
 
 // Start the server
